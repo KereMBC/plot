@@ -79,6 +79,9 @@ fun LineGraph(
     val lines = plot.lines
     val xUnit = plot.xAxis.unit
 
+    val showXAxis = plot.showXAxis
+    val showYAxis = plot.showYAxis
+
     CompositionLocalProvider(
         LocalLayoutDirection provides LayoutDirection.Ltr,
     ) {
@@ -257,7 +260,7 @@ fun LineGraph(
                         }
                     }
                 })
-
+            if(showXAxis)
             GraphXAxis(
                 Modifier
                     .align(Alignment.BottomStart)
@@ -280,7 +283,7 @@ fun LineGraph(
             ) {
                 plot.xAxis.content(xMin, xAxisScale, xMax)
             }
-
+            if (showYAxis)
             GraphYAxis(
                 Modifier
                     .align(Alignment.TopStart)

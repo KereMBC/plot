@@ -54,12 +54,14 @@ data class LinePlot(
     val lines: List<Line>,
     val grid: Grid? = null,
     val selection: Selection = Selection(),
-    val xAxis: XAxis? = null,
-    val yAxis: YAxis? = null,
+    val xAxis: XAxis = XAxis(),
+    val yAxis: YAxis = YAxis(),
     val isZoomAllowed: Boolean = true,
     val paddingTop: Dp = 16.dp,
     val paddingRight: Dp = 0.dp,
     val horizontalExtraSpace: Dp = 6.dp,
+    val showXAxis: Boolean = true,
+    val showYAxis: Boolean = true,
 ) {
     /**
      * Represent a Line in the [LineGraph]

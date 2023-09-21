@@ -51,7 +51,6 @@ android {
 
 dependencies {
 //    implementation(project(mapOf("path" to ":plot")))
-    implementation("com.github.madrapps:plot:0.1.1")
 
     implementation("androidx.core:core-ktx:1.6.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
@@ -63,6 +62,7 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.3.1")
     implementation("androidx.activity:activity-ktx:1.3.1")
     implementation("androidx.compose.runtime:runtime-livedata:${rootProject.extra["compose_version"]}")
+    implementation(project(mapOf("path" to ":plot")))
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
