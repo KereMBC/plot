@@ -260,44 +260,46 @@ fun LineGraph(
                         }
                     }
                 })
-            if(showXAxis)
-            GraphXAxis(
-                Modifier
-                    .align(Alignment.BottomStart)
-                    .fillMaxWidth()
-                    .wrapContentHeight()
-                    .clip(
-                        RowClip(
-                            columnWidth.value,
-                            paddingRight
+            if(showXAxis) {
+                GraphXAxis(
+                    Modifier
+                        .align(Alignment.BottomStart)
+                        .fillMaxWidth()
+                        .wrapContentHeight()
+                        .clip(
+                            RowClip(
+                                columnWidth.value,
+                                paddingRight
+                            )
                         )
-                    )
-                    .onGloballyPositioned {
-                        rowHeight.value = it.size.height.toFloat()
-                    }
-                    .padding(bottom = plot.xAxis.paddingBottom, top = plot.xAxis.paddingTop),
-                columnWidth.value + horizontalGap.value * LocalDensity.current.density,
-                offset.value,
-                xZoom.value * xAxisScale * (1 / xUnit),
-                stepSize = plot.xAxis.stepSize,
-            ) {
-                plot.xAxis.content(xMin, xAxisScale, xMax)
+                        .onGloballyPositioned {
+                            rowHeight.value = it.size.height.toFloat()
+                        }
+                        .padding(bottom = plot.xAxis.paddingBottom, top = plot.xAxis.paddingTop),
+                    columnWidth.value + horizontalGap.value * LocalDensity.current.density,
+                    offset.value,
+                    xZoom.value * xAxisScale * (1 / xUnit),
+                    stepSize = plot.xAxis.stepSize,
+                ) {
+                    plot.xAxis.content(xMin, xAxisScale, xMax)
+                }
             }
-            if (showYAxis)
-            GraphYAxis(
-                Modifier
-                    .align(Alignment.TopStart)
-                    .fillMaxHeight()
-                    .wrapContentWidth()
-                    .onGloballyPositioned {
-                        columnWidth.value = it.size.width.toFloat()
-                    }
-                    .padding(start = plot.yAxis.paddingStart, end = plot.yAxis.paddingEnd),
-                paddingTop = paddingTop.value * LocalDensity.current.density,
-                paddingBottom = rowHeight.value,
-                scale = globalYScale,
-            ) {
-                plot.yAxis.content(yMin, yAxisScale, yMax)
+            if (showYAxis) {
+                GraphYAxis(
+                    Modifier
+                        .align(Alignment.TopStart)
+                        .fillMaxHeight()
+                        .wrapContentWidth()
+                        .onGloballyPositioned {
+                            columnWidth.value = it.size.width.toFloat()
+                        }
+                        .padding(start = plot.yAxis.paddingStart, end = plot.yAxis.paddingEnd),
+                    paddingTop = paddingTop.value * LocalDensity.current.density,
+                    paddingBottom = rowHeight.value,
+                    scale = globalYScale,
+                ) {
+                    plot.yAxis.content(yMin, yAxisScale, yMax)
+                }
             }
         }
     }
